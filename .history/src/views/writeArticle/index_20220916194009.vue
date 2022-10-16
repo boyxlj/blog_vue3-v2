@@ -36,11 +36,13 @@ const getTags =async ()=>{
 
 <style lang="scss" scoped>
 .writeArticle{
-  width: 1350px;
+  width: 1300px;
   min-height: 600px;
   box-sizing: border-box;
   user-select: none;
   margin: 0 auto;
   overflow: hidden;
+
+
 }
 </style>

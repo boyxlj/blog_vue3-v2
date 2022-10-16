@@ -12,7 +12,7 @@
         <el-input clearable v-model.trim="ruleForm.artTitle"  placeholder="请填写内容标题" type="text" autocomplete="off" />
       </el-form-item>
       <el-form-item label="内容详情" class="item"  prop="artIntroduce">
-        <el-input clearable v-model.trim="ruleForm.artIntroduce"  placeholder="请填写内容详情(简单描述文章主体内容)" type="text" autocomplete="off" />
+        <el-input clearable v-model.trim="ruleForm.artIntroduce"  placeholder="请填写内容详情" type="text" autocomplete="off" />
       </el-form-item>
       <el-form-item label="文章分类"  prop="tag">
         <el-select
@@ -28,11 +28,7 @@
           />
         </el-select>
       </el-form-item>
-    
-      <el-form-item   prop="artContent" class="markdown" label="文章内容" >
-        <MarkDown  :previewOnly="false" :value="ruleForm.artContent" v-model="ruleForm.artContent" ></MarkDown>
-      </el-form-item>
-      <el-form-item label="仅自己可见" >
+      <el-form-item label="是否隐藏" >
         <el-switch
             v-model="ruleForm.isHidden"
             class="ml-2"
@@ -44,6 +40,9 @@
             --el-switch-on-color: teal;
              --el-switch-off-color: #DCDFE6"
         />
+      </el-form-item>
+      <el-form-item   prop="artContent" class="markdown" label="文章内容" >
+        <MarkDown  :previewOnly="false" :value="ruleForm.artContent" v-model="ruleForm.artContent" ></MarkDown>
       </el-form-item>
       <el-form-item>
         <el-button plain class="submitBtn" :disabled="updateDisabled" type="primary" @click="submitForm(ruleFormRef)"
@@ -367,7 +366,7 @@ const beforeUpload =async (rawFile:any) => {
       .submitBtn,.resetBtn,.previewBtn{
         position: fixed;
         top: 130px;
-        right:45px;
+        right:50px;
         z-index: 888;
       }
       .submitBtn{

@@ -133,7 +133,7 @@ const toolbars:ToolbarNames[] = ([
   overflow: hidden;
   min-height: 90vh;
   background:var(--el-bg-color);
-  border-radius: 10px;
+  border-radius: 20px;
 
 }
 </style>
