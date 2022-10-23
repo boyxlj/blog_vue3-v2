@@ -53,7 +53,7 @@ import {useValidateLogin} from "@/hooks/validateLogin";
 const userIdStore = JSON.parse(localStorage.getItem("userInfo") as string)?.userId
 type Props = {
   list :IArticleData[]
-  isCollect:boolean
+  isCollect?:boolean
 }
  withDefaults(defineProps<Props>(),{
   list:()=>[],

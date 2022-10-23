@@ -25,6 +25,7 @@
           <span><el-icon><View /></el-icon>{{item.pageView}}</span>
           <span><el-icon><Star /></el-icon>{{item.collectCount}}</span>
           <span><el-icon><ChatLineSquare /></el-icon>{{item.artPcomment}}</span>
+          <span v-if="isCollect">收藏时间：{{getTimeBefore(item.collectTime)}}</span>
         </div>
             <div class="right circleCss"
                  v-if="isCollect"
@@ -45,13 +46,14 @@
 import {IArticleData} from "@/types/article"
 import {getTimeBefore} from "@/utils/getTimeBefore"
 import {Star,View,ChatLineSquare,Delete} from "@element-plus/icons-vue"
+import {ElMessageBox} from "element-plus"
 import {emitter} from "@/emitter";
 import {useValidateIDisabled} from "@/hooks/validateIDisabled";
 import {useValidateLogin} from "@/hooks/validateLogin";
 const userIdStore = JSON.parse(localStorage.getItem("userInfo") as string)?.userId
 type Props = {
   list :IArticleData[]
-  isCollect:boolean
+  isCollect?:boolean
 }
  withDefaults(defineProps<Props>(),{
   list:()=>[],
@@ -82,7 +84,7 @@ const deleteCollect =async (id:string|number,e:Event)=>{
   const {state,login} =await useValidateLogin()
   if(!state||!login) return
   const isDisable =await useValidateIDisabled("删除")
-  if(isDisable) return
+  if(isDisable) return ElMessage.warning("暂无法移除收藏")
   ElMessageBox.confirm(
       '您确定要从收藏中移除当前文章吗?',
       '温馨提示',
