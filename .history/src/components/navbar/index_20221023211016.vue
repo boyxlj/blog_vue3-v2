@@ -29,7 +29,7 @@
       <el-button type="success" plain @click="navigateLogin('login')">登录</el-button>
       <el-button type="primary" class="reg" plain @click="navigateLogin('reg')">注册</el-button>
     </div>
-    <el-dropdown  placement="bottom-start" :hide-on-click="false"  v-else>
+    <el-dropdown placement="bottom-start" :hide-on-click="false"  v-else>
       <div class="login_yes">
         <img :src="userImg" alt="">
         <div class="userInfo">
@@ -40,8 +40,7 @@
       <template #dropdown>
         <el-dropdown-menu class="menus">
           <el-dropdown-item @click="$router.push('/profile')">个人中心</el-dropdown-item>
-          <el-dropdown-item @click="$router.push('/profile/article')">文章管理</el-dropdown-item>
-          <el-dropdown-item @click="$router.push('/profile/collect')">我的收藏</el-dropdown-item>
+          <el-dropdown-item @click="$router.push('/profile')">文章管理</el-dropdown-item>
           <el-dropdown-item @click="clickLogout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </template>

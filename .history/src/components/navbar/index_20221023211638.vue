@@ -42,7 +42,7 @@
           <el-dropdown-item @click="$router.push('/profile')">个人中心</el-dropdown-item>
           <el-dropdown-item @click="$router.push('/profile/article')">文章管理</el-dropdown-item>
           <el-dropdown-item @click="$router.push('/profile/collect')">我的收藏</el-dropdown-item>
-          <el-dropdown-item @click="clickLogout">退出登录</el-dropdown-item>
+          <el-dropdown-item style="background-color: red;"  divided @click="clickLogout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>

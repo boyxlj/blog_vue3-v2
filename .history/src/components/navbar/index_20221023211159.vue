@@ -29,7 +29,7 @@
       <el-button type="success" plain @click="navigateLogin('login')">登录</el-button>
       <el-button type="primary" class="reg" plain @click="navigateLogin('reg')">注册</el-button>
     </div>
-    <el-dropdown  placement="bottom-start" :hide-on-click="false"  v-else>
+    <el-dropdown placement="bottom-start" :hide-on-click="false"  v-else>
       <div class="login_yes">
         <img :src="userImg" alt="">
         <div class="userInfo">
