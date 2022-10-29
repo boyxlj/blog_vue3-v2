@@ -37,6 +37,7 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     Footer: typeof import('./src/components/footer/index.vue')['default']
+    Loading: typeof import('./src/components/common/loading/index.vue')['default']
     MarkDown: typeof import('./src/components/common/markDown/index.vue')['default']
     Navbar: typeof import('./src/components/navbar/index.vue')['default']
     NavbarSearch: typeof import('./src/components/navbarSearch/index.vue')['default']
