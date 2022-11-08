@@ -189,7 +189,7 @@ button.learn-more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.51rem;
   width: 1rem;
-  height: 0.11rem;
+  height: 0.1.04rem;
   background: none;
 }
 
@@ -198,10 +198,10 @@ button.learn-more .circle .icon.arrow::before {
   content: "";
   top: -0.29rem;
   right: 0.0825rem;
-  width: 0.58rem;
-  height: 0.58rem;
-  border-top: 0.12rem solid #282936;
-  border-right: 0.12rem solid #282936;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #282936;
+  border-right: 0.125rem solid #282936;
   transform: rotate(45deg);
 }
 
@@ -218,7 +218,7 @@ button.learn-more .button-text {
   font-weight: 700;
   line-height: 1.3;
   text-align: center;
-  // text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 

@@ -3,23 +3,16 @@
     <div class="select-box">
       <!-- 顶部菜单栏 -->
       <div class="select-content">
-        <button
-          class="learn-more select-content-list"
-          @click="getPidId(index)"
-          :class="{ active: currentIndex == index }"
-          v-for="(item, index) in firstCate"
-          :key="index"
+        <div
+            @click="getPidId(index)"
+            :class="{ active: currentIndex == index }"
+            class="select-content-list"
+            v-for="(item, index) in firstCate"
+            :key="index"
         >
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text"> {{ item }}</span>
-        </button>
-        <el-tooltip
-          content="点击快速查询链接内容"
-          placement="top"
-          effect="light"
-        >
+          {{ item }}
+        </div>
+        <el-tooltip content="点击快速查询链接内容" placement="top" effect="light">
           <div @click="clickSearch" class="search_btn">
             <el-icon><Search /></el-icon>
           </div>
@@ -30,13 +23,13 @@
 </template>
 
 <script setup lang="ts">
-import { Search } from "@element-plus/icons-vue";
+import { Search } from '@element-plus/icons-vue'
 const router = useRouter();
 const emit = defineEmits(["getSecondCate"]);
 const props = defineProps(["firstCate"]);
 const currentIndex = ref(0);
 
-const getPidId = (index: any) => {
+const getPidId = (index:any) => {
   currentIndex.value = index;
   emit("getSecondCate", index);
 };
@@ -44,6 +37,8 @@ const getPidId = (index: any) => {
 const clickSearch = () => {
   router.push("/search/link");
 };
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -60,24 +55,33 @@ const clickSearch = () => {
     align-items: center;
     flex-wrap: wrap;
     z-index: 888;
-    position: relative;
-    left: -80px;
-    z-index: 88;
     .select-content-list {
-      margin: 0 30px;
+      width: 10%;
+      height: 40px;
+      color: #999;
+      margin-right: 40px;
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 40px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: .3s ease-in;
+      border-radius: 4px;
+      text-align: center;
+      background: var(--el-bg-color);
+      &:hover {
+        cursor: pointer;
+      }
     }
     .active {
-      .circle {
-        width: 100%;
-        box-shadow:  0 0 10px #ccc;
-        .icon {
-          background: #282936;
-          transform: translate(1rem, 0);
-        }
-      }
-      .button-text {
-        color: #282936;
-      }
+      transition: all 0.3s;
+      background: rgb(221, 178, 178);
+      color: #2c3e50;
+      font-size: 17px;
+      border-radius: 4px;
+      background-image: linear-gradient(to right bottom,#9cdae8, rgb(237, 191, 191));
+      font-weight: bold;
+
     }
     .select-content-last {
       width: 100%;
@@ -103,13 +107,13 @@ const clickSearch = () => {
           width: 100%;
           height: 2.2px;
           background-image: linear-gradient(
-            to right,
-            white,
-            red,
-            rgb(92, 229, 241),
-            rgb(92, 92, 241),
-            rgb(244, 120, 113),
-            white
+              to right,
+              white,
+              red,
+              rgb(92, 229, 241),
+              rgb(92, 92, 241),
+              rgb(244, 120, 113),
+              white
           );
           transform: translateX(-100%);
           transition: all 0.8s;
@@ -126,7 +130,7 @@ const clickSearch = () => {
   background: red;
   position: fixed;
   right: 100px;
-  top: 140px;
+  top:140px;
   --el-backtop-bg-color: var(--el-bg-color-overlay);
   --el-backtop-text-color: var(--el-color-primary);
   --el-backtop-hover-bg-color: var(--el-border-color-extra-light);
@@ -146,93 +150,90 @@ const clickSearch = () => {
 }
 
 button {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
+ position: relative;
+ display: inline-block;
+ cursor: pointer;
+ outline: none;
+ border: 0;
+ vertical-align: middle;
+ text-decoration: none;
+ background: transparent;
+ padding: 0;
+ font-size: inherit;
+ font-family: inherit;
 }
 
 button.learn-more {
-  width: 11rem;
-  height: auto;
+ width: 12rem;
+ height: auto;
 }
 
 button.learn-more .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: block;
-  margin: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  // background: #282936;
-  background: #fff;
-  border-radius: 1.625rem;
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: relative;
+ display: block;
+ margin: 0;
+ width: 3rem;
+ height: 3rem;
+ background: #282936;
+ border-radius: 1.625rem;
 }
 
 button.learn-more .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ margin: auto;
+ background: #fff;
 }
 
 button.learn-more .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.51rem;
-  width: 1rem;
-  height: 0.11rem;
-  background: none;
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ left: 0.625rem;
+ width: 1.125rem;
+ height: 0.125rem;
+ background: none;
 }
 
 button.learn-more .circle .icon.arrow::before {
-  position: absolute;
-  content: "";
-  top: -0.29rem;
-  right: 0.0825rem;
-  width: 0.58rem;
-  height: 0.58rem;
-  border-top: 0.12rem solid #282936;
-  border-right: 0.12rem solid #282936;
-  transform: rotate(45deg);
+ position: absolute;
+ content: "";
+ top: -0.29rem;
+ right: 0.0625rem;
+ width: 0.625rem;
+ height: 0.625rem;
+ border-top: 0.125rem solid #fff;
+ border-right: 0.125rem solid #fff;
+ transform: rotate(45deg);
 }
 
 button.learn-more .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.7rem 0;
-  margin: 0 0 0 1.5rem;
-  color: #282936;
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: center;
-  // text-transform: uppercase;
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ padding: 0.75rem 0;
+ margin: 0 0 0 1.85rem;
+ color: #282936;
+ font-weight: 700;
+ line-height: 1.6;
+ text-align: center;
+ text-transform: uppercase;
 }
 
-
 button:hover .circle {
-  width: 100%;
-  box-shadow:  0 0 10px #ccc;
+ width: 100%;
 }
 
 button:hover .circle .icon.arrow {
-  background: #282936;
-  transform: translate(1rem, 0);
+ background: #fff;
+ transform: translate(1rem, 0);
 }
 
 button:hover .button-text {
-  color: #282936;
+ color: #fff;
 }
 </style>

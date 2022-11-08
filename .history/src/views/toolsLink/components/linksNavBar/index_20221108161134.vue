@@ -200,8 +200,8 @@ button.learn-more .circle .icon.arrow::before {
   right: 0.0825rem;
   width: 0.58rem;
   height: 0.58rem;
-  border-top: 0.12rem solid #282936;
-  border-right: 0.12rem solid #282936;
+  border-top: 0.125rem solid #282936;
+  border-right: 0.125rem solid #282936;
   transform: rotate(45deg);
 }
 

@@ -10,9 +10,9 @@ const needLogin=["/select","/profile/userInfo",
 router.beforeEach( (to,from,next)=>{
     const userId  = JSON.parse(localStorage.getItem("userInfo") as string)?.userId
     const token = localStorage.getItem("token")
-    // if(to.meta.title) { // @ts-ignore
-    //     document.title = to.meta.title as string
-    // }
+    if(to.meta.title) { // @ts-ignore
+        document.title = to.meta.title as string
+    }
     if(userId && token){
         //已登录
         if(to.path.includes("/login") || to.path.includes("/repsd") ){
@@ -30,7 +30,7 @@ router.beforeEach( (to,from,next)=>{
 
 router.afterEach((to,from)=>{
   if(to.meta.title){
-    document.title = to.meta.title  as string
+    document.title = to.meta.title || '首页' as string
   }
 
 })

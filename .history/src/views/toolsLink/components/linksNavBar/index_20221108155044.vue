@@ -3,18 +3,16 @@
     <div class="select-box">
       <!-- 顶部菜单栏 -->
       <div class="select-content">
-        <button
-          class="learn-more select-content-list"
+          <button class="learn-more select-content-list"
           @click="getPidId(index)"
           :class="{ active: currentIndex == index }"
           v-for="(item, index) in firstCate"
-          :key="index"
-        >
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text"> {{ item }}</span>
-        </button>
+          :key="index">
+            <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+            </span>
+            <span class="button-text"> {{ item }}</span>
+          </button>
         <el-tooltip
           content="点击快速查询链接内容"
           placement="top"
@@ -60,25 +58,37 @@ const clickSearch = () => {
     align-items: center;
     flex-wrap: wrap;
     z-index: 888;
-    position: relative;
-    left: -80px;
-    z-index: 88;
     .select-content-list {
-      margin: 0 30px;
+      // width: 10%;
+      // height: 40px;
+      // color: #999;
+      // margin-right: 40px;
+      // margin-top: 10px;
+      // font-size: 16px;
+      // line-height: 40px;
+      // border: 1px solid transparent;
+      // cursor: pointer;
+      // transition: 0.3s ease-in;
+      // border-radius: 4px;
+      // text-align: center;
+      // background: var(--el-bg-color);
+      // &:hover {
+      //   cursor: pointer;
+      // }
     }
-    .active {
-      .circle {
-        width: 100%;
-        box-shadow:  0 0 10px #ccc;
-        .icon {
-          background: #282936;
-          transform: translate(1rem, 0);
-        }
-      }
-      .button-text {
-        color: #282936;
-      }
-    }
+    // .active {
+    //   transition: all 0.3s;
+    //   background: rgb(221, 178, 178);
+    //   color: #2c3e50;
+    //   font-size: 17px;
+    //   border-radius: 4px;
+    //   background-image: linear-gradient(
+    //     to right bottom,
+    //     #9cdae8,
+    //     rgb(237, 191, 191)
+    //   );
+    //   font-weight: bold;
+    // }
     .select-content-last {
       width: 100%;
       height: 50px;
@@ -160,7 +170,7 @@ button {
 }
 
 button.learn-more {
-  width: 11rem;
+  width: 12rem;
   height: auto;
 }
 
@@ -169,10 +179,9 @@ button.learn-more .circle {
   position: relative;
   display: block;
   margin: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  // background: #282936;
-  background: #fff;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
   border-radius: 1.625rem;
 }
 
@@ -187,9 +196,9 @@ button.learn-more .circle .icon {
 
 button.learn-more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.51rem;
-  width: 1rem;
-  height: 0.11rem;
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
   background: none;
 }
 
@@ -197,11 +206,11 @@ button.learn-more .circle .icon.arrow::before {
   position: absolute;
   content: "";
   top: -0.29rem;
-  right: 0.0825rem;
-  width: 0.58rem;
-  height: 0.58rem;
-  border-top: 0.12rem solid #282936;
-  border-right: 0.12rem solid #282936;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
   transform: rotate(45deg);
 }
 
@@ -212,27 +221,25 @@ button.learn-more .button-text {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 0.7rem 0;
-  margin: 0 0 0 1.5rem;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
   color: #282936;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.6;
   text-align: center;
-  // text-transform: uppercase;
+  text-transform: uppercase;
 }
-
 
 button:hover .circle {
   width: 100%;
-  box-shadow:  0 0 10px #ccc;
 }
 
 button:hover .circle .icon.arrow {
-  background: #282936;
+  background: #fff;
   transform: translate(1rem, 0);
 }
 
 button:hover .button-text {
-  color: #282936;
+  color: #fff;
 }
 </style>
