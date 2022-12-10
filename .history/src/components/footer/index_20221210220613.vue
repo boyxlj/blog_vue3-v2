@@ -8,14 +8,14 @@
 
 <script lang="ts" setup>
 const navigateGithub = ()=>{
-  window.open("https://github.com/boyxlj")
+  console.log("124")
 }
 </script>
 
 <style scoped lang="scss">
 .footer{
   width: 1500px;
-  height: 170px;
+  height: 160px;
   margin:0 auto;
   display: flex;
   justify-content: center;

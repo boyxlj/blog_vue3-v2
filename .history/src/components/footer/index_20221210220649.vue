@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 const navigateGithub = ()=>{
-  window.open("https://github.com/boyxlj")
+  console.log("124")
 }
 </script>
 

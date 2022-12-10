@@ -10,6 +10,8 @@ export default defineConfig({
       '@': path.join(__dirname, 'src')
     },
   },
+    
+  base: '/dist/',
   plugins: [
     vue(),
     AutoImport({
@@ -21,7 +23,8 @@ export default defineConfig({
     }),
     Components({
       resolvers: [
-        ElementPlusResolver()
+        ElementPlusResolver(
+        )
       ]
     })
   ],

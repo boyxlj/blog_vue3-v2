@@ -5,9 +5,8 @@ import "nprogress/nprogress.css"
 import router from "@/router";
 const  request = Axios.create({
     // baseURL:"http://localhost:3303/api",
-    baseURL:"https://api.helloxlj.top/api",
 })
-
+798加加加
 
 request.interceptors.request.use((config:any)=>{
     const localHref = location.href

@@ -5,7 +5,6 @@ import "nprogress/nprogress.css"
 import router from "@/router";
 const  request = Axios.create({
     // baseURL:"http://localhost:3303/api",
-    baseURL:"https://api.helloxlj.top/api",
 })
 
 

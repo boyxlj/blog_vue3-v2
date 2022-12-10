@@ -30,15 +30,16 @@ const navigateIndex = ()=>{
   align-items: center;
   .bg{
     width: 600px;
-    height: 450px;
-    background-image: url("../../assets/images/404.png");
+    height: 400px;
+    background-image: url("../src/assets/images/404.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   object-fit: cover;
   }
   .btn{
     position: fixed;
-    bottom: 140px;
+    left: 220px;
+    bottom: 160px;
   }
 }
 </style>

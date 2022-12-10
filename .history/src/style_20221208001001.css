@@ -22,7 +22,9 @@ li{
   width: 5px !important;
   border-radius: 8px;
   height: 2px !important;
+  /* background-color: #DDDEE0; */
   background-color: #cecece;
+  /*background-color: var(--el-scrollbar-hover-bg-color);*/
 }
 
 img{

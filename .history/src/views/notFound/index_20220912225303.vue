@@ -1,6 +1,5 @@
 <template>
   <div class="notFound">
-    <div class="bg"></div>
     <el-button class="btn" @click="navigateIndex">返回首页</el-button>
   </div>
 </template>
@@ -24,21 +23,14 @@ const navigateIndex = ()=>{
   left: 0;
   background: #fff;
   z-index: 999;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .bg{
-    width: 600px;
-    height: 450px;
-    background-image: url("../../assets/images/404.png");
+  background-image: url("../src/assets/images/404.gif");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   object-fit: cover;
-  }
   .btn{
     position: fixed;
-    bottom: 140px;
+    left: 220px;
+    bottom: 160px;
   }
 }
 </style>
