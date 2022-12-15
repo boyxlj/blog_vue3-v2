@@ -170,7 +170,7 @@ const getSearch = async () => {
     }
   }
   .content {
-    width: 80%;
+    width: 100%;
     margin: 35px auto 45px;
     .total {
       text-align: right;
@@ -186,7 +186,7 @@ const getSearch = async () => {
         width: 25%;
         height: 100px;
         margin: 0 auto 20px;
-        margin: 20px 40px 40px 40px;
+        margin: 20px 40px 40px 60px;
         position: relative;
         cursor: pointer;
         border-radius: 5px;

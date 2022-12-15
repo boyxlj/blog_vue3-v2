@@ -1,6 +1,6 @@
 <template>
   <!-- 子级分类 -->
-  <div class="loadings" element-loading-background="#F2F3F5" v-if="!secondCate.length" v-loading="true"></div>
+  <div class="loadings" v-if="!secondCate.length" v-loading="true"></div>
     <div v-else class="categroy" v-for="item in secondCate" :key="item.id">
     <div class="title">
       <span>{{ item.name }}</span>
@@ -46,8 +46,7 @@ const getLinksData = (data: any) => {
 
 <style lang="scss" scoped>
 .loadings{
-  height: 400px;
-  z-index: 666 !important;
+  height: 1000px;
 }
 .categroy {
   user-select: none;

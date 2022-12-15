@@ -8,7 +8,6 @@
         clearable
         :autofocus="true"
         focus
-        size="large"
       ></el-input>
     </div>
     <div class="showSearch" v-if="showSearch">
@@ -132,7 +131,7 @@ const getSearch = async () => {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 1.5px;
+      height: 2px;
       background-image: linear-gradient(
         to right,
         white,
@@ -170,7 +169,7 @@ const getSearch = async () => {
     }
   }
   .content {
-    width: 80%;
+    width: 100%;
     margin: 35px auto 45px;
     .total {
       text-align: right;
@@ -186,7 +185,7 @@ const getSearch = async () => {
         width: 25%;
         height: 100px;
         margin: 0 auto 20px;
-        margin: 20px 40px 40px 40px;
+        margin: 20px 40px 40px 60px;
         position: relative;
         cursor: pointer;
         border-radius: 5px;

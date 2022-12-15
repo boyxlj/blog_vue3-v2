@@ -1,7 +1,6 @@
 <template>
   <!-- 子级分类 -->
-  <div class="loadings" element-loading-background="#F2F3F5" v-if="!secondCate.length" v-loading="true"></div>
-    <div v-else class="categroy" v-for="item in secondCate" :key="item.id">
+  <div class="categroy" v-for="item in secondCate" :key="item.id">
     <div class="title">
       <span>{{ item.name }}</span>
     </div>
@@ -11,16 +10,16 @@
     <div class="boxs">
       <!-- 具体每一项 -->
       <div
-        class="links"
-        v-show="item.sub.length != 0"
-        v-for="item1 in getLinksData(item.sub)"
-        :key="item1.id"
-        @click="hrefUrl(item1.urls)"
+          class="links"
+          v-show="item.sub.length != 0"
+          v-for="item1 in getLinksData(item.sub)"
+          :key="item1.id"
+          @click="hrefUrl(item1.urls)"
       >
         <img
-          v-if="!item1.linkImg"
-          src="../../../../assets/images/dong.gif"
-          alt=""
+            v-if="!item1.linkImg"
+            src="../../../../assets/images/dong.gif"
+            alt=""
         />
         <img v-if="item1.linkImg" v-lazy="item1.linkImg" alt="" />
         <div class="name">{{ item1.name }}</div>
@@ -30,36 +29,30 @@
       </div>
     </div>
   </div>
-  
 </template>
 
 <script setup lang="ts">
-const props = defineProps(["secondCate"]);
-const hrefUrl = (urls: any) => {
-  window.open(urls);
-};
+const props = defineProps(["secondCate"])
+const hrefUrl = (urls:any) => {
+  window.open(urls)
+}
 
-const getLinksData = (data: any) => {
-  return data?.sort((a: any, b: any) => b.id - a.id);
-};
+const getLinksData = (data:any)=>{
+  return data?.sort((a:any,b:any)=>b.id-a.id)
+}
 </script>
 
 <style lang="scss" scoped>
-.loadings{
-  height: 400px;
-  z-index: 666 !important;
-}
 .categroy {
   user-select: none;
-  width: 85%;
-  margin:10px  0  60px;
-  transform: translateX(7%); 
+  width: 90%;
+  background: skyblue;
+  margin-top: 30px;
   .title {
     text-align: left;
-    margin-left: 42px;
+    margin-left: 62px;
     padding-bottom: 15px;
-    font-size: 23px;
-    margin-bottom: 24px;
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
@@ -91,11 +84,11 @@ const getLinksData = (data: any) => {
     justify-content: flex-start;
     flex-wrap: wrap;
     .links {
-      width: 26%;
+      width: 25%;
       height: 100px;
       margin: 0 auto 20px;
       // box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-      margin: 20px 40px 40px 40px;
+      margin: 20px 40px 40px 60px;
       position: relative;
       cursor: pointer;
       border-radius: 5px;

@@ -46,8 +46,7 @@ const getLinksData = (data: any) => {
 
 <style lang="scss" scoped>
 .loadings{
-  height: 400px;
-  z-index: 666 !important;
+  height: 200px;
 }
 .categroy {
   user-select: none;

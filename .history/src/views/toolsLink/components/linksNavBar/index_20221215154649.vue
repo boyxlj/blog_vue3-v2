@@ -33,11 +33,14 @@
 import { Search } from "@element-plus/icons-vue";
 const router = useRouter();
 const emit = defineEmits(["getSecondCate"]);
-const props = defineProps(["firstCate","secondCate"]);
+const props = defineProps(["firstCate","isDisabled"]);
+console.log(props.isDisabled)
 const currentIndex = ref(0);
+watch(()=>props.isDisabled,()=>{
+  console.log("发生变化了")
+})
 const getPidId = (index: any) => {
-  if(!props.secondCate.length) return
-  if(index==currentIndex.value) return
+  // if(props.isDisabled) return
   currentIndex.value = index;
   emit("getSecondCate", index);
 };

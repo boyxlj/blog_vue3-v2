@@ -1,6 +1,6 @@
 <template>
   <div class="toolsLink" >
-    <LinksNavBar :secondCate="linkData.secondCate"   @getSecondCate="getSecondCate" :firstCate="linkData.firstCate"></LinksNavBar>
+    <LinksNavBar @getSecondCate="getSecondCate" :firstCate="linkData.firstCate"></LinksNavBar>
     <LinkItem  :secondCate="linkData.secondCate"></LinkItem>
   </div>
 </template>
@@ -29,24 +29,19 @@ let linkData = reactive<{
   allData:[]
 });
 
-const isDisabled = ref(true)
 const getSecondCate = (index:number)=>{
-  linkData.secondCate=[]
-  isDisabled.value = true
-  setTimeout(()=>{
-    linkData.secondCate = linkData.allData[index].sub
-    isDisabled.value = false
-  },800)
+  linkData.secondCate = linkData.allData[index].sub
 }
 
 //获取链接内容
 onMounted(async ()=>{
   let {data:res} = await getAllLinks()
+  console.log(res)
+  const datas = res.filter((item:any)=>item.sub?.length)
+  console.log(datas)
   linkData.firstCate  = res.filter((item:any)=>item.sub?.length)?.map((item:any)=>item.name)
-  setTimeout(()=>{
-    linkData.allData = res.filter((item:any)=>item.sub?.length)
-    linkData.secondCate  = res[0].sub
-  },800)
+  linkData.allData = res
+  linkData.secondCate  = res[0].sub
 })
 
 
@@ -56,6 +51,7 @@ onMounted(async ()=>{
 .toolsLink{
   width: 100%;
   min-height:100vh;
+  //background: #fff;
 }
 
 </style>

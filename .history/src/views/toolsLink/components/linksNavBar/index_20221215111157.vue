@@ -1,5 +1,5 @@
 <template>
-  <div class="box" >
+  <div class="box">
     <div class="select-box">
       <!-- 顶部菜单栏 -->
       <div class="select-content">
@@ -33,11 +33,10 @@
 import { Search } from "@element-plus/icons-vue";
 const router = useRouter();
 const emit = defineEmits(["getSecondCate"]);
-const props = defineProps(["firstCate","secondCate"]);
+const props = defineProps(["firstCate"]);
 const currentIndex = ref(0);
+
 const getPidId = (index: any) => {
-  if(!props.secondCate.length) return
-  if(index==currentIndex.value) return
   currentIndex.value = index;
   emit("getSecondCate", index);
 };
@@ -51,21 +50,21 @@ const clickSearch = () => {
 .select-box {
   user-select: none;
   padding: 10px;
-  margin-bottom: 20px;
   .select-content {
     min-height: 130px;
-    width: 96%;
+    width: 100%;
     border-radius: 5px;
     display: flex;
     padding: 0 10px 0 60px;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     z-index: 888;
-    margin: 0 auto;
+    position: relative;
+    left: -80px;
     z-index: 88;
-    box-sizing: border-box;
     .select-content-list {
-      margin: 40px 30px 25px;
+      margin: 40px 30px 20px;
     }
     .active {
       .circle {

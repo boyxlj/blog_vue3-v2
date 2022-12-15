@@ -2,43 +2,38 @@
   <div class="searchLink">
     <div class="input">
       <el-input
-        v-model="key"
-        placeholder="请输入你想要搜索链接的内容吧"
-        @change="change"
-        clearable
-        :autofocus="true"
-        focus
-        size="large"
+          v-model="key"
+          placeholder="请输入你想要搜索链接的内容吧"
+          @change="change"
+          clearable
+          :autofocus="true"
+          focus
       ></el-input>
     </div>
     <div class="showSearch" v-if="showSearch">
-      <img src="../../assets/images/searchLink.png" alt="" />
+      <img src="../../assets/images/searchLink.png" alt="">
     </div>
     <div class="searchBefore1" v-loading="loading" v-if="nodata">
       <h1>暂无数据</h1>
     </div>
-    <div class="content">
-      <div v-if="searchList.length > 0" class="total">
-        已为您查询到 <b>{{ searchList.length }}</b
-        >条数据
-      </div>
+    <div class="content" >
+      <div v-if="searchList.length>0" class="total">已为您查询到 <b>{{searchList.length}}</b>条数据 </div>
       <div class="boxs">
         <!-- 具体每一项 -->
         <div
-          class="links"
-          v-for="item1 in searchList"
-          :key="item1?.id"
-          @click="hrefUrl(item1.urls ?? '')"
+            class="links"
+            v-for="item1 in searchList" :key="item1?.id"
+            @click="hrefUrl(item1.urls??'')"
         >
           <img
-            v-if="!item1?.linkImg"
-            src="../../assets/images/dong.gif"
-            alt=""
+              v-if="!item1?.linkImg"
+              src="../../assets/images/dong.gif"
+              alt=""
           />
           <img v-if="item1?.linkImg" v-lazy="item1?.linkImg" alt="" />
           <div class="name">{{ item1?.name }}</div>
           <div class="desc">
-            {{ item1?.linkDesc ? item1?.linkDesc : `${item1?.name}` }}
+            {{ item1?.linkDesc ? item1?.linkDesc : `${item1?.name}`  }}
           </div>
         </div>
       </div>
@@ -47,132 +42,129 @@
 </template>
 
 <script lang="ts" setup>
-import { getSearchLinks } from "@/api/request";
-import { ILinksData } from "@/types/links";
-const key = ref("");
-const autofocus = ref(true);
-const loading = ref(false);
+import {getSearchLinks} from "@/api/request"
+import {ILinksData} from "@/types/links";
+const key = ref("")
+const autofocus = ref(true)
+const loading = ref(false)
 let searchList = ref<ILinksData[]>([]);
-const nodata = ref(false);
-const showSearch = ref(true);
-onMounted(() => {
+const nodata= ref(false)
+const showSearch= ref(true)
+onMounted(()=>{
   document.documentElement.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+    top:0,
+    behavior:"smooth"
+  })
+})
 
-onActivated(() => {
+onActivated(()=>{
   document.documentElement.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+    top:0,
+    behavior:"smooth"
+  })
+})
 
-const change = (value: string) => {
-  loading.value = true;
-  getSearch();
-};
+const change = (value:string)=>{
+  loading.value= true
+  getSearch()
+}
 
-const getFocus = () => {
-  autofocus.value = true;
-  showSearch.value = false;
-};
-const hrefUrl = (urls: string) => {
+const getFocus = ()=>{
+  autofocus.value = true
+  showSearch.value=false
+}
+const hrefUrl = (urls:string)=>{
   window.open(urls);
-};
+}
 
-const getSearch = async () => {
-  if (!key.value) {
-    searchList.value = [];
-    loading.value = false;
-    showSearch.value = false;
-    return;
+const getSearch = async()=>{
+  if(!key.value){
+    searchList.value = []
+    loading.value= false
+    showSearch.value=false
+    return
   }
-  showSearch.value = false;
-  let { data: res } = await getSearchLinks(key.value);
-  let arr1 = res.data && res.data.filter((item: any) => item.urls != "");
-  loading.value = false;
-  if (res.code == 200) {
-    if (res.data?.length) {
-      searchList.value = arr1;
-      nodata.value = false;
-    } else {
-      searchList.value = [];
-      nodata.value = true;
+  showSearch.value=false
+  let {data:res} = await getSearchLinks(key.value)
+  let arr1 = res.data&&res.data.filter((item:any)=>item.urls!="")
+  loading.value= false
+  if(res.code==200) {
+    if(res.data?.length){
+      searchList.value = arr1
+    nodata.value =false
+    }else{
+      searchList.value = []
+  nodata.value =true
     }
-
-    return;
+    
+    return
   }
-  searchList.value = [];
-  nodata.value = true;
-};
+  searchList.value = []
+  nodata.value =true
+}
 </script>
 
 <style lang="scss" scoped>
-.searchLink {
+.searchLink{
   width: 100%;
   min-height: 90vh;
   margin: 0 auto;
   overflow: hidden;
-  .input {
+  .input{
     width: 60%;
     margin: 0 auto;
     margin-top: 55px;
     position: relative;
     overflow: hidden;
-    &:hover {
-      &::after {
+    &:hover{
+      &::after{
         transform: translateX(0);
       }
     }
-    &::after {
-      content: "";
+    &::after{
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 1.5px;
-      background-image: linear-gradient(
-        to right,
-        white,
-        red,
-        rgb(92, 229, 241),
-        rgb(92, 92, 241),
-        rgb(244, 120, 113),
-        white
-      );
+      height: 2px ;
+      background-image: linear-gradient(to right,
+          white,red,
+          rgb(92, 229, 241),
+          rgb(92, 92, 241),
+          rgb(244, 120, 113),
+          white);
       transform: translateX(-100%);
-      transition: all 0.8s;
+      transition: all .8s;
     }
   }
-  .showSearch {
+  .showSearch{
     width: 600px;
     height: 400px;
     margin: 50px auto;
-    img {
+    img{
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
   }
-  .searchBefore1 {
+  .searchBefore1{
     width: 500px;
     height: 400px;
     margin: 0 auto;
     background-image: url("../../assets/images/empty.png");
     background-size: 100% 100%;
-    h1 {
+    h1{
       position: relative;
       top: 350px;
       text-align: center;
       font-size: 20px;
     }
   }
-  .content {
-    width: 80%;
+  .content{
+    width: 100%;
     margin: 35px auto 45px;
-    .total {
+    .total{
       text-align: right;
       margin-right: 6%;
       font-size: 16px;
@@ -186,7 +178,7 @@ const getSearch = async () => {
         width: 25%;
         height: 100px;
         margin: 0 auto 20px;
-        margin: 20px 40px 40px 40px;
+        margin: 20px 40px 40px 60px;
         position: relative;
         cursor: pointer;
         border-radius: 5px;
@@ -215,7 +207,7 @@ const getSearch = async () => {
           white-space: nowrap;
           font-size: 17px;
           font-weight: 520;
-          transition: all 0.3s;
+          transition: all .3s;
         }
         .desc {
           position: absolute;

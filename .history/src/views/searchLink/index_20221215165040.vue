@@ -26,20 +26,27 @@
         <!-- 具体每一项 -->
         <div
           class="links"
-          v-for="item1 in searchList"
-          :key="item1?.id"
-          @click="hrefUrl(item1.urls ?? '')"
+          
         >
-          <img
-            v-if="!item1?.linkImg"
-            src="../../assets/images/dong.gif"
-            alt=""
-          />
-          <img v-if="item1?.linkImg" v-lazy="item1?.linkImg" alt="" />
-          <div class="name">{{ item1?.name }}</div>
-          <div class="desc">
-            {{ item1?.linkDesc ? item1?.linkDesc : `${item1?.name}` }}
-          </div>
+         
+        </div>
+        <div
+          class="links"
+          
+        >
+         
+        </div>
+        <div
+          class="links"
+          
+        >
+         
+        </div>
+        <div
+          class="links"
+          
+        >
+         
         </div>
       </div>
     </div>
@@ -170,8 +177,9 @@ const getSearch = async () => {
     }
   }
   .content {
-    width: 80%;
+    width: 85%;
     margin: 35px auto 45px;
+    background: red;
     .total {
       text-align: right;
       margin-right: 6%;
@@ -186,7 +194,7 @@ const getSearch = async () => {
         width: 25%;
         height: 100px;
         margin: 0 auto 20px;
-        margin: 20px 40px 40px 40px;
+        margin: 20px 40px 40px 60px;
         position: relative;
         cursor: pointer;
         border-radius: 5px;

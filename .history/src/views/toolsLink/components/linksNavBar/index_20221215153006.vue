@@ -1,5 +1,5 @@
 <template>
-  <div class="box" >
+  <div class="box" v-loading="true">
     <div class="select-box">
       <!-- 顶部菜单栏 -->
       <div class="select-content">
@@ -33,11 +33,10 @@
 import { Search } from "@element-plus/icons-vue";
 const router = useRouter();
 const emit = defineEmits(["getSecondCate"]);
-const props = defineProps(["firstCate","secondCate"]);
+const props = defineProps(["firstCate"]);
 const currentIndex = ref(0);
+
 const getPidId = (index: any) => {
-  if(!props.secondCate.length) return
-  if(index==currentIndex.value) return
   currentIndex.value = index;
   emit("getSecondCate", index);
 };

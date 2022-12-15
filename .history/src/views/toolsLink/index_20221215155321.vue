@@ -36,7 +36,7 @@ const getSecondCate = (index:number)=>{
   setTimeout(()=>{
     linkData.secondCate = linkData.allData[index].sub
     isDisabled.value = false
-  },800)
+  },3000)
 }
 
 //获取链接内容
@@ -46,7 +46,7 @@ onMounted(async ()=>{
   setTimeout(()=>{
     linkData.allData = res.filter((item:any)=>item.sub?.length)
     linkData.secondCate  = res[0].sub
-  },800)
+  },3000)
 })
 
 
