@@ -480,7 +480,7 @@ const navigateComment = ()=>{
 }
 .footer{
   width: 100%;
-  height: 100px;
+  height: 80px;
   background: var(--el-bg-color);
   border-radius: 4px;
   margin-top: 10px;
@@ -493,19 +493,6 @@ const navigateComment = ()=>{
   .top{
     user-select: none;
     margin-top: 6px;
-  }
-  .bottom{
-    span{
-      user-select: none;
-    }
-    a{
-      text-decoration: none;
-      color:var(--el-text-color-title);
-      transition: all .3s;
-      &:hover{
-        color: #87CEEB;
-      }
-    }
   }
 }
 

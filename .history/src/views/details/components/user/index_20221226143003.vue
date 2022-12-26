@@ -1,8 +1,8 @@
 <template>
   <div class="user">
-    <img @click="navigateSelect(userId??'')" :src="userImg" alt="">
+    <img @click="navigateSelect(userId)" :src="userImg" alt="">
     <div class="info">
-      <span class="name" @click="navigateSelect(userId??'')">{{name}}</span>
+      <span class="name" @click="navigateSelect(userId)">{{name}}</span>
       <span class="date">注册于{{getTimeBefore(regDate)}}</span>
     </div>
   </div>
@@ -20,7 +20,7 @@ defineProps<{
 
 const router= useRouter()
 //跳转用户个人主页
-const navigateSelect = (userId:number)=>{
+const navigateSelect = (userId:string)=>{
   if(userIdStore==userId){
     router.push('/profile/userInfo')
   }else{
@@ -33,7 +33,7 @@ const navigateSelect = (userId:number)=>{
 <style lang="scss" scoped>
 .user{
   width: 100%;
-  height: 120px;
+  height: 100px;
   display: flex;
   align-items: center;
   background: var(--el-bg-color);
@@ -43,8 +43,8 @@ const navigateSelect = (userId:number)=>{
   border-radius: 4px;
   user-select: none;
 img{
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;

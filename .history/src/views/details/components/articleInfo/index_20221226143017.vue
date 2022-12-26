@@ -1,14 +1,14 @@
 <template>
   <div class="articleInfo">
-    <div class="title">
+    <div :class="isActive?'active title':'title'">
       <p class="title_tip">文章标题:</p>
       <p class="content">{{artTitle}}</p>
     </div>
-    <div class="articleCategory">
+    <div  :class="isActive?'active articleCategory':'articleCategory'">
       <p class="tip">文章分类:
-        <el-button @click="navigateTags(item)"  text v-for="(item,index) in tag?.split(',')" :key="index">
+        <el-tag @click="navigateTags(item)" style="margin-right: 10px; cursor: pointer;"  type="info" v-for="(item,index) in tag?.split(',')" :key="index">
           {{item}}
-        </el-button>
+        </el-tag>
       </p>
     </div>
     <div class="navigate" v-if="catalogData.length">
@@ -25,6 +25,7 @@
 <script setup lang="ts">
 import {emitter} from "@/emitter";
 import { ITagsData } from "@/types/article";
+const isActive = ref(false)
 const catalogData = ref<{
   id:string,
   text:string
@@ -45,6 +46,22 @@ const router = useRouter()
 const navigateTags = (value:string)=>{
   router.push(`/tags?key=${value}`)
 }
+
+onMounted(()=>{
+  window.addEventListener("scroll",getScrollTop)
+})
+
+const getScrollTop = (e:Event)=>{
+  if(window.scrollY>200){
+    isActive.value = true
+  }else{
+    isActive.value = false
+  }
+}
+
+onUnmounted(()=>{
+  window.removeEventListener("scroll",getScrollTop)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -62,6 +79,7 @@ const navigateTags = (value:string)=>{
   }
   .title{
     min-height: 50px;
+    display: none;
     .title_tip{
       margin-bottom: 7px;
       font-weight: 700;
@@ -79,6 +97,7 @@ const navigateTags = (value:string)=>{
   }
   .articleCategory{
     margin: 14px 0;
+    display: none;
     min-height: 30px;
     .tip{
       font-weight: 700;
@@ -118,5 +137,9 @@ const navigateTags = (value:string)=>{
 
     }
   }
+}
+
+.active{
+  display: block !important;
 }
 </style>

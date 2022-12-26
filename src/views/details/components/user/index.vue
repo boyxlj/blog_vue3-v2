@@ -33,7 +33,7 @@ const navigateSelect = (userId:string)=>{
 <style lang="scss" scoped>
 .user{
   width: 100%;
-  height: 120px;
+  height: 100px;
   display: flex;
   align-items: center;
   background: var(--el-bg-color);
@@ -43,8 +43,8 @@ const navigateSelect = (userId:string)=>{
   border-radius: 4px;
   user-select: none;
 img{
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
