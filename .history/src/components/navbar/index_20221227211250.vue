@@ -185,6 +185,7 @@ const clickLogout = ()=>{
       .menus{
         margin-left: 50px;
         min-width: 540px;
+        color: var(--el-text-color-regular);
         a{
           text-decoration: none;
           margin-right: 80px;
@@ -246,11 +247,9 @@ const clickLogout = ()=>{
         }
         .userInfo{
           margin-left: 6px;
-        color: var(--el-text-color-regular);
-
           span{
             display: inline-block;
-            color: var(--el-text-color-regular);
+            color: #555;
             font-size: 15px;
             width: 140px;
             white-space: nowrap;

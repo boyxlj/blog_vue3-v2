@@ -52,7 +52,6 @@ const navigateTags = (key:string)=>{
     padding-left: 6px;
     .title{
       font-size: 22px;
-      color: var(--el-text-color-regular);
     }
   }
   .item{

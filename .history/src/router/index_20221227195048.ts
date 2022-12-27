@@ -3,7 +3,7 @@ import { ElMessage } from 'element-plus'
 import { routes } from "./routes"
 const router = createRouter({
   routes,
-  history: createWebHistory()
+  history: createWebHashHistory()
 })
 const needLogin = ["/select", "/profile/userInfo",
   "/profile/article", "/profile/collect", "/profile/like", "/profile/update/userInfo", "/profile/suggestion"]

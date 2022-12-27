@@ -91,7 +91,6 @@ onUnmounted(()=>{
     .title_tip{
       margin-bottom: 7px;
       font-weight: 700;
-      color: var(--el-text-color-regular);
     }
     .content{
       width: 100%;
@@ -110,14 +109,12 @@ onUnmounted(()=>{
     min-height: 30px;
     .tip{
       font-weight: 700;
-      color: var(--el-text-color-regular);
     }
   }
   .navigate{
     .tip{
       font-weight: bold;
       margin-bottom: 7px;
-      color: var(--el-text-color-regular);
     }
     li{
       width: 100%;

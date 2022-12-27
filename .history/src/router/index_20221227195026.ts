@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory,createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory, } from "vue-router";
 import { ElMessage } from 'element-plus'
 import { routes } from "./routes"
 const router = createRouter({
   routes,
-  history: createWebHistory()
+  history: crea()
 })
 const needLogin = ["/select", "/profile/userInfo",
   "/profile/article", "/profile/collect", "/profile/like", "/profile/update/userInfo", "/profile/suggestion"]

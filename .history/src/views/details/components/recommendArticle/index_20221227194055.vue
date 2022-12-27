@@ -33,7 +33,6 @@ const navigateDetails = (artId:string)=>{
   .tips{
     font-weight: 700;
     margin-bottom: 7px;
-    color: var(--el-text-color-regular);
   }
   li{
     overflow: hidden;

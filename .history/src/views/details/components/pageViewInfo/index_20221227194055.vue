@@ -33,7 +33,6 @@ const props = defineProps<{
   margin-bottom: 10px;
   border-radius: 4px;
   user-select: none;
-  color: var(--el-text-color-regular);
   li{
     margin: 4px 0;
   }

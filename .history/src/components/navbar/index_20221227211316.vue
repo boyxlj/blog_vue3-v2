@@ -250,7 +250,7 @@ const clickLogout = ()=>{
 
           span{
             display: inline-block;
-            color: var(--el-text-color-regular);
+            color: #555;
             font-size: 15px;
             width: 140px;
             white-space: nowrap;
