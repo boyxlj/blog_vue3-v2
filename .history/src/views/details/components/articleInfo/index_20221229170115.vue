@@ -1,5 +1,5 @@
 <template>
-  <div class="articleInfo" :style="{'padding': isActive || catalogData.length?'15px':0}">
+  <div class="articleInfo" :style="{'padding': isActive?'15px':0}">
     <div :class="isActive?'active title':'title'">
       <p class="title_tip">文章标题:</p>
       <p class="content">{{artTitle}}</p>

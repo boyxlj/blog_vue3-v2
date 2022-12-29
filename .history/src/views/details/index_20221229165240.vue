@@ -390,7 +390,7 @@ const navigateComment = () => {
   border-radius: 4px;
   position: relative;
   background: var(--el-bg-color);
-  padding: 4px 4px 15px 4px;
+  padding: 4px 8px;
   box-sizing: border-box;
   .top {
     background: var(--el-bg-color);
@@ -508,11 +508,12 @@ const navigateComment = () => {
   background: var(--el-bg-color);
   margin-top: 20px;
   margin: 0 auto;
-  border-top: 2px solid var(--el-border-color-extra-light);
+  border-top: 1px solid var(--el-border-color-extra-light);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  padding: 0 30px;
   box-sizing: border-box;
   color: var(--el-text-color-regular);
   .top {

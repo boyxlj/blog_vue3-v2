@@ -1,5 +1,5 @@
 <template>
-  <div class="articleInfo" :style="{'padding': isActive || catalogData.length?'15px':0}">
+  <div class="articleInfo">
     <div :class="isActive?'active title':'title'">
       <p class="title_tip">文章标题:</p>
       <p class="content">{{artTitle}}</p>
@@ -77,7 +77,7 @@ onUnmounted(()=>{
   width: 100%;
   min-height: 0px;
   background: var(--el-bg-color);
-  /* padding: 15px; */
+  padding: 15px;
   box-sizing: border-box;
   margin-bottom: 6px;
   border-radius: 4px;

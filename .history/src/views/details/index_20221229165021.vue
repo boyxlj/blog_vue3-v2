@@ -74,7 +74,7 @@
           :artPcomment="detailData.artPcomment"
         ></Comments>
       </div>
-      <div class="detailsFooter">
+      <div class="footer">
         <Footer/>
         <!-- <div class="top">Copyright © 2021-2023 Miraitowa helloxlj.top All Rights Reserved</div>
             <div class="bottom"><span>备案号: </span><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/recordQuery">津ICP备2021007424号-1</a></div>
@@ -390,7 +390,7 @@ const navigateComment = () => {
   border-radius: 4px;
   position: relative;
   background: var(--el-bg-color);
-  padding: 4px 4px 15px 4px;
+  padding: 4px 8px;
   box-sizing: border-box;
   .top {
     background: var(--el-bg-color);
@@ -502,17 +502,19 @@ const navigateComment = () => {
 .comment {
   bottom: 120px;
 }
-.detailsFooter {
+.footer {
   width: 100%;
   height: 110px;
   background: var(--el-bg-color);
   margin-top: 20px;
   margin: 0 auto;
-  border-top: 2px solid var(--el-border-color-extra-light);
+  /* border-top: 3px solid var(--el-border-color-extra-light); */
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   font-size: 14px;
+  padding: 0 10px;
   box-sizing: border-box;
   color: var(--el-text-color-regular);
   .top {

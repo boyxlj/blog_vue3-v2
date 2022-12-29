@@ -390,7 +390,7 @@ const navigateComment = () => {
   border-radius: 4px;
   position: relative;
   background: var(--el-bg-color);
-  padding: 4px 4px 15px 4px;
+  padding: 4px 5px 15px 5px;
   box-sizing: border-box;
   .top {
     background: var(--el-bg-color);

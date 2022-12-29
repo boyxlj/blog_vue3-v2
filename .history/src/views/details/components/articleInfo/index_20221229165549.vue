@@ -1,5 +1,5 @@
 <template>
-  <div class="articleInfo" :style="{'padding': isActive || catalogData.length?'15px':0}">
+  <div class="articleInfo">
     <div :class="isActive?'active title':'title'">
       <p class="title_tip">文章标题:</p>
       <p class="content">{{artTitle}}</p>
@@ -11,6 +11,7 @@
         </el-tag>
       </p>
     </div>
+    <h3>123</h3>
     <div class="navigate" v-if="catalogData.length">
       <p class="tip" >目录导航:</p>
       <li v-for="(item,index) in catalogData" :key="index">
@@ -75,9 +76,9 @@ onUnmounted(()=>{
 <style lang="scss" scoped>
 .articleInfo{
   width: 100%;
-  min-height: 0px;
+  min-height: 80px;
   background: var(--el-bg-color);
-  /* padding: 15px; */
+  padding: 15px;
   box-sizing: border-box;
   margin-bottom: 6px;
   border-radius: 4px;
