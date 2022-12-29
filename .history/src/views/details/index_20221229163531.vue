@@ -504,7 +504,7 @@ const navigateComment = () => {
   height: 110px;
   background: var(--el-bg-color);
   border-radius: 4px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin: 0 auto;
   display: flex;
   justify-content: center;

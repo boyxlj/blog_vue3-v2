@@ -37,7 +37,7 @@ const navigateIndex = () => {
     top: -50px;
     left: 20px;
     &:hover{
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
   p{

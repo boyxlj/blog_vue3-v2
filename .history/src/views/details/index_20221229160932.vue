@@ -33,39 +33,24 @@
           <div class="box">
             <div class="boxTop">
               <span>文章发布于：{{ detailData.artDate }}</span>
-              <span
-                ><el-icon class="icon"><View /></el-icon
-                >{{ detailData.pageView || 0 }}</span
-              >
-              <span
-                ><el-icon class="icon"><Star /></el-icon
-                >{{ detailData.collectCount || 0 }}</span
-              >
+              <span><el-icon class="icon"><View /></el-icon>{{ detailData.pageView || 0 }}</span>
+              <span><el-icon class="icon"><Star /></el-icon>{{ detailData.collectCount || 0 }}</span>
             </div>
             <div class="boxBottom">
-              分类标签：
-              <el-tag
-                @click="navigateTags(item)"
-                type="info"
-                v-for="(item, index) in detailData.tag?.split(',')"
-                :key="index"
-              >
-                {{ item }}
-              </el-tag>
+              分类标签： <el-tag @click="navigateTags(item)"  type="info" v-for="(item,index) in detailData.tag?.split(',')" :key="index">
+          {{item}}
+        </el-tag>
             </div>
           </div>
           <div class="borderBottom"></div>
         </div>
         <MarkDown
-          v-loading="detailsLoading"
-          :previewOnly="true"
-          :value="detailData.artContent ?? ''"
-        ></MarkDown>
-        <div class="updatetime" v-if="detailData.updatetime">
-          <el-icon class="icon"><Edit /></el-icon>文章于
-          {{ detailData.updatetime }} 进行了修改
-        </div>
-        <Comments
+        v-loading="detailsLoading"
+        :previewOnly="true"
+        :value="detailData.artContent ?? ''"
+      ></MarkDown>
+      <div class="updatetime" v-if="detailData.updatetime"><el-icon class="icon"><Edit /></el-icon>文章于 {{ detailData.updatetime }} 进行了修改</div>
+      <Comments
           @updates="updates"
           :comment="comment"
           :collect="collect"
@@ -75,18 +60,16 @@
         ></Comments>
       </div>
       <div class="footer">
-        <Footer/>
-        <!-- <div class="top">Copyright © 2021-2023 Miraitowa helloxlj.top All Rights Reserved</div>
-            <div class="bottom"><span>备案号: </span><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/recordQuery">津ICP备2021007424号-1</a></div>
-        -->
-      </div>
+          <div class="top">Copyright © 2021-2023 Miraitowa helloxlj.top All Rights Reserved</div>
+  <div class="bottom"><span>备案号: </span><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/recordQuery">津ICP备2021007424号-1</a></div>
+        </div>
     </div>
-
+   
     <div class="comment" @click="navigateComment">
       <el-icon>
         <ChatDotSquare />
       </el-icon>
-    </div>
+      </div>
     <div class="collect" @click="clickCollect">
       <el-icon v-if="!isCollect">
         <Star />
@@ -103,7 +86,6 @@ import ArticleInfo from "./components/articleInfo/index.vue";
 import RecommendArticle from "./components/recommendArticle/index.vue";
 import PageViewInfo from "./components/pageViewInfo/index.vue";
 import Comments from "./components/comments/index.vue";
-import Footer from "@/components/footer/index.vue";
 import {
   getArtContentById,
   getRandomArt,
@@ -115,9 +97,9 @@ import {
 import { IArticleData } from "@/types/article";
 import { ICollectParams } from "@/types/collect";
 import { useValidateLogin } from "@/hooks/validateLogin";
-import { ChatDotSquare, Star, Edit, View } from "@element-plus/icons-vue";
+import { ChatDotSquare, Star,Edit,View } from "@element-plus/icons-vue";
 import { getCurTime } from "@/utils/getCurTime";
-import { ElMessage } from "element-plus";
+import {ElMessage} from "element-plus"
 const route = useRoute();
 const artId = ref(route.params.artId as string);
 const userId = JSON.parse(localStorage.getItem("userInfo") as string)
@@ -128,7 +110,7 @@ onMounted(() => {
     top: 0,
     behavior: "smooth",
   });
-
+ 
   artId.value = route.params.artId as string;
   window.addEventListener("scroll", scrollFn);
   getArtContent();
@@ -136,9 +118,9 @@ onMounted(() => {
 });
 
 //跳转文章分类标签
-const navigateTags = (value: any) => {
-  router.push(`/tags?key=${value}`);
-};
+const navigateTags = (value:any)=>{
+  router.push(`/tags?key=${value}`)
+}
 //顶部滚动条的宽度
 const scrollWidth = ref(0);
 //加载动画
@@ -154,7 +136,7 @@ watch(
       top: 0,
       behavior: "smooth",
     });
-    getArtContent();
+      getArtContent();
   }
 );
 const isCollect = ref(false);
@@ -193,23 +175,24 @@ const getArtContent = async (str?: string) => {
         detailsLoading.value = false;
       }, 400)
   );
-  if (res.code == 401) {
-    ElMessage.error("内容已丢失,或出现违规已被清除");
-    const preDetailsPath = sessionStorage.getItem("preDetailsPath");
-    if (preDetailsPath) {
-      router.push(preDetailsPath);
-    } else {
-      router.go(-1);
+  console.log(res)
+  if(res.code==401){
+    ElMessage.error("内容已丢失,或出现违规已被清除")
+    const preDetailsPath = sessionStorage.getItem("preDetailsPath")
+    if(preDetailsPath){
+      router.push(preDetailsPath)
+    }else{
+      router.go(-1)
     }
-    return;
+    return 
   }
-  if (res.code == 402) {
-    router.replace("/notFound");
-    return;
+  if(res.code==402){
+    router.replace("/notFound")
+    return
   }
-  if (res.code == 404) {
-    router.replace("/notFound");
-    return;
+  if(res.code==404){
+    router.replace("/notFound")
+    return
   }
   const hidden = res?.data[0]?.hidden;
   const mangerHidden = res?.data[0]?.mangerHidden;
@@ -244,6 +227,7 @@ const getArtContent = async (str?: string) => {
     document.title = res.data[0]?.artTitle;
   }
 };
+
 
 //获取推荐文章
 const getRecommendArt = async () => {
@@ -340,11 +324,11 @@ const updates = (type: any, value: any, commentCount: any) => {
 };
 
 //跳转评论
-const navigateComment = () => {
+const navigateComment = ()=>{
   document.querySelector("#pinglinya")?.scrollIntoView({
-    behavior: "smooth",
+    behavior:"smooth"
   });
-};
+}
 </script>
 <style lang="scss" scoped>
 .details {
@@ -389,22 +373,22 @@ const navigateComment = () => {
   overflow-y: scroll;
   border-radius: 4px;
   position: relative;
-  .top {
+  .top{
     background: var(--el-bg-color);
     margin-bottom: 8px;
     border-radius: 4px;
     box-sizing: border-box;
     padding: 0 20px;
-    .articleInfo {
+    .articleInfo{
       box-sizing: border-box;
       height: 190px;
       padding: 5px 0;
       user-select: none;
-      h2 {
+      h2{
         color: var(--el-text-color-title);
         font-weight: 700;
       }
-      .box {
+      .box{
         width: 100%;
         height: 85px;
         background: var(--el-bg-color-detailBg);
@@ -414,50 +398,50 @@ const navigateComment = () => {
         user-select: none;
         color: var(--el-text-color-regular);
         font-size: 14px;
-        .boxTop {
+        .boxTop{
           display: flex;
           align-items: center;
           user-select: none;
-          span {
+          span{
             margin-right: 33px;
-            .icon {
+            .icon{
               position: relative;
               top: 2px;
               margin-right: 5px;
             }
           }
         }
-        .boxBottom {
+        .boxBottom{
           margin-top: 15px;
           user-select: none;
-          .el-tag {
+          .el-tag{
             margin-right: 15px;
             cursor: pointer;
             user-select: none;
           }
         }
       }
-      .borderBottom {
+      .borderBottom{
         padding-top: 20px;
         border-bottom: 2px solid var(--el-border-color-extra-light);
       }
     }
-    .updatetime {
+    .updatetime{
       width: 100%;
-      height: 45px;
-      background: var(--el-bg-color-detailBg);
-      border-radius: 4px;
-      padding: 15px 20px;
-      box-sizing: border-box;
-      user-select: none;
-      color: var(--el-text-color-regular);
-      font-size: 14px;
-      margin: 20px 0 30px;
-      .icon {
-        position: relative;
-        top: 2px;
-        margin-right: 10px;
-      }
+        height: 45px;
+        background: var(--el-bg-color-detailBg);
+        border-radius: 4px;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        user-select: none;
+        color: var(--el-text-color-regular);
+        font-size: 14px;
+        margin: 20px 0 30px;
+        .icon{
+          position: relative;
+          top: 2px;
+          margin-right: 10px;
+        }
     }
   }
 }
@@ -499,33 +483,33 @@ const navigateComment = () => {
 .comment {
   bottom: 120px;
 }
-.footer {
+.footer{
   width: 100%;
-  height: 110px;
+  height: 100px;
   background: var(--el-bg-color);
   border-radius: 4px;
   margin-top: 10px;
-  margin: 0 auto;
+  margin:0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-size: 14px;
   color: var(--el-text-color-regular);
-  .top {
+  .top{
     user-select: none;
     margin-top: 6px;
   }
-  .bottom {
-    span {
+  .bottom{
+    span{
       user-select: none;
     }
-    a {
+    a{
       text-decoration: none;
-      color: var(--el-text-color-title);
-      transition: all 0.3s;
-      &:hover {
-        color: #87ceeb;
+      color:var(--el-text-color-title);
+      transition: all .3s;
+      &:hover{
+        color: #87CEEB;
       }
     }
   }

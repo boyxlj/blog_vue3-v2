@@ -26,7 +26,7 @@ const navigateGithub = () => {
 <style scoped lang="scss">
 .footer {
   width: 1500px;
-  height: 110px;
+  height: 120px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -37,11 +37,11 @@ const navigateGithub = () => {
     user-select: none;
     margin-top: 14px;
     position: relative;
-    .zhan {
-      display: inline-block;
-      width: 44px;
-      height: 30px;
-    }
+  .zhan{
+    display: inline-block;
+    width: 46px;
+    height: 30px;
+  }
     .github {
       display: inline-block;
       width: 40px;
@@ -53,16 +53,16 @@ const navigateGithub = () => {
       left: 49.3%;
       transform: translateX(-50%);
       bottom: 2px;
-      transition: all 0.3s;
-      &:hover {
-        width: 48px;
-        height: 48px;
+      transition: all .3s;
+      &:hover{
+        width: 50px;
+        height: 50px;
       }
     }
   }
 
   .bottom {
-    margin-top: 10px;
+    margin-top: 14px;
     span {
       user-select: none;
     }

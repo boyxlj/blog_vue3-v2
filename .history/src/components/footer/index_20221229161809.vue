@@ -2,9 +2,9 @@
   <div class="footer">
     <!-- <div class="github" @click="navigateGithub"></div> -->
     <div class="top">
-      Copyright © 2021-2023 Miraitowa<span class="zhan"></span>helloxlj.top All
+      Copyright © 2021-2023 Miraitowa
+      <span class="github" @click="navigateGithub"></span> helloxlj.top All
       Rights Reserved
-      <span class="github" @click="navigateGithub"></span>
     </div>
     <div class="bottom">
       <span>备案号: </span
@@ -26,7 +26,7 @@ const navigateGithub = () => {
 <style scoped lang="scss">
 .footer {
   width: 1500px;
-  height: 110px;
+  height: 170px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -36,33 +36,23 @@ const navigateGithub = () => {
   .top {
     user-select: none;
     margin-top: 14px;
-    position: relative;
-    .zhan {
-      display: inline-block;
-      width: 44px;
-      height: 30px;
-    }
     .github {
-      display: inline-block;
       width: 40px;
       height: 40px;
       cursor: pointer;
-      position: absolute;
       background-image: url("../../assets/images/github.png");
       background-size: 100% 100%;
-      left: 49.3%;
-      transform: translateX(-50%);
-      bottom: 2px;
       transition: all 0.3s;
+      background: red;
+
       &:hover {
-        width: 48px;
-        height: 48px;
+        transform: rotate(360deg);
       }
     }
   }
 
   .bottom {
-    margin-top: 10px;
+    margin-top: 14px;
     span {
       user-select: none;
     }

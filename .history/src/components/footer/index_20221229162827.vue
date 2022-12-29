@@ -26,7 +26,7 @@ const navigateGithub = () => {
 <style scoped lang="scss">
 .footer {
   width: 1500px;
-  height: 110px;
+  height: 170px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -37,11 +37,11 @@ const navigateGithub = () => {
     user-select: none;
     margin-top: 14px;
     position: relative;
-    .zhan {
-      display: inline-block;
-      width: 44px;
-      height: 30px;
-    }
+  .zhan{
+    display: inline-block;
+    width: 46px;
+    height: 30px;
+  }
     .github {
       display: inline-block;
       width: 40px;
@@ -50,19 +50,19 @@ const navigateGithub = () => {
       position: absolute;
       background-image: url("../../assets/images/github.png");
       background-size: 100% 100%;
+      transition: all 0.3s;
       left: 49.3%;
       transform: translateX(-50%);
-      bottom: 2px;
-      transition: all 0.3s;
+      bottom: 3px;
       &:hover {
-        width: 48px;
-        height: 48px;
+        transform: translateX(0%);
+        transform: scale(1.1);
       }
     }
   }
 
   .bottom {
-    margin-top: 10px;
+    margin-top: 14px;
     span {
       user-select: none;
     }

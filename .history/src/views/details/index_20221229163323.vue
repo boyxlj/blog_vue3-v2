@@ -501,7 +501,7 @@ const navigateComment = () => {
 }
 .footer {
   width: 100%;
-  height: 110px;
+  height: 100px;
   background: var(--el-bg-color);
   border-radius: 4px;
   margin-top: 10px;

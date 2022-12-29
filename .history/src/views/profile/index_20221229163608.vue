@@ -73,7 +73,7 @@ emitter.on('updateUserInfoGlobal',()=>{
   box-sizing: border-box;
   .left {
     width: 270px;
-    height: calc(100vh - #{200px});
+    height: calc(100vh - #{220px});
     position: fixed;
     z-index: 10;
     background: var(--el-bg-color);

@@ -26,7 +26,7 @@ const navigateIndex = () => {
   user-select: none;
   .bg {
     width: 400px;
-    height: 320px;
+    height: 350px;
     background-image: url("../../assets/images/404.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -34,20 +34,20 @@ const navigateIndex = () => {
     /* background: red; */
     position: relative;
     transition: all .3s;
-    top: -50px;
+    top: -90px;
     left: 20px;
     &:hover{
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
   p{
-    position: absolute;
-    bottom: 190px;
-    font-size: 20px;
+    /* position: absolute;
+    bottom: 100px; */
+    font-size: 22px;
   }
   .btn {
-    position: absolute; 
-     bottom: 130px;
+    /* position: absolute; */
+    /* bottom: 50px; */
   }
 }
 </style>

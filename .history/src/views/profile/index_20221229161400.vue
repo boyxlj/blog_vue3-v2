@@ -73,7 +73,7 @@ emitter.on('updateUserInfoGlobal',()=>{
   box-sizing: border-box;
   .left {
     width: 270px;
-    height: calc(100vh - #{200px});
+    height: calc(100vh - #{140px});
     position: fixed;
     z-index: 10;
     background: var(--el-bg-color);
@@ -109,7 +109,7 @@ emitter.on('updateUserInfoGlobal',()=>{
         border-radius: 5px;
         padding: 0 12px;
         transition: all .3s;
-        margin: 4px 0;
+        margin: 3px 0;
         color: var(--el-text-color-regular);
         //--el-tag-bg-color: var(--el-color-primary-light-9);
         //--el-tag-border-color: var(--el-color-primary-light-8);

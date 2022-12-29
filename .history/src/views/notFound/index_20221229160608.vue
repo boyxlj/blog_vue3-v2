@@ -37,17 +37,18 @@ const navigateIndex = () => {
     top: -50px;
     left: 20px;
     &:hover{
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
   p{
     position: absolute;
-    bottom: 190px;
-    font-size: 20px;
+    bottom: 100px;
+    font-size: 22px;
+    position: relative;
   }
   .btn {
     position: absolute; 
-     bottom: 130px;
+     bottom: 150px;
   }
 }
 </style>

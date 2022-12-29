@@ -15,39 +15,37 @@ const navigateIndex = () => {
 
 <style lang="scss" scoped>
 .notFound {
+  /* width: 100%;
+  height: 100%;
+  position: fixed; */
   width: 100%;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
   background: #fff;
+  z-index: 999;
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
-  user-select: none;
   .bg {
-    width: 400px;
-    height: 320px;
+    width: 600px;
+    height: 450px;
     background-image: url("../../assets/images/404.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     object-fit: cover;
-    /* background: red; */
-    position: relative;
-    transition: all .3s;
-    top: -50px;
-    left: 20px;
-    &:hover{
-      transform: scale(1.1);
-    }
   }
   p{
     position: absolute;
-    bottom: 190px;
-    font-size: 20px;
+    bottom: 140px;
   }
   .btn {
-    position: absolute; 
-     bottom: 130px;
+    position: absolute;
+    bottom: 140px;
   }
 }
 </style>

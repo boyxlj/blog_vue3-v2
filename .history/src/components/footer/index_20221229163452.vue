@@ -53,7 +53,7 @@ const navigateGithub = () => {
       left: 49.3%;
       transform: translateX(-50%);
       bottom: 2px;
-      transition: all 0.3s;
+      transition: all 0.4s;
       &:hover {
         width: 48px;
         height: 48px;

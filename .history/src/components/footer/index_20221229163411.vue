@@ -26,7 +26,7 @@ const navigateGithub = () => {
 <style scoped lang="scss">
 .footer {
   width: 1500px;
-  height: 110px;
+  height: 120px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -53,16 +53,16 @@ const navigateGithub = () => {
       left: 49.3%;
       transform: translateX(-50%);
       bottom: 2px;
-      transition: all 0.3s;
+      transition: all 0.4s;
       &:hover {
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
       }
     }
   }
 
   .bottom {
-    margin-top: 10px;
+    margin-top: 14px;
     span {
       user-select: none;
     }
