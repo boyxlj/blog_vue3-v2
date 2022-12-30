@@ -3,8 +3,8 @@
     <div class="bg"></div>
     <p>您访问的页面丢失啦~</p>
     <div class="btns">
-      <el-button class="btn" @click="navigateGoBack">返回上一步</el-button>
       <el-button class="btn" @click="navigateIndex">返回到首页</el-button>
+      <el-button class="btn" @click="navigateGoBack">返回上一步</el-button>
     </div>
   </div>
 </template>
@@ -52,7 +52,7 @@ const navigateGoBack = () => {
   }
   .btns {
     position: absolute; 
-     bottom: 140px;
+     bottom: 120px;
   }
 }
 </style>

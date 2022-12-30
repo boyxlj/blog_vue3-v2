@@ -289,7 +289,7 @@ const deleteCollect = async (id: string | number, e: Event) => {
       object-fit: cover;
       border-radius: 3px;
       &:hover{
-        transform: scale(1.2);
+        transform: scale(1.3);
       }
     }
   }

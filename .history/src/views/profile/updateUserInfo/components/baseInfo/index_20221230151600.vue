@@ -167,32 +167,22 @@ const submitForm = (formEl: FormInstance | undefined) => {
 const updateUser = async ()=>{
   if(!rules.userId) return
   const obj:IUpdateUserParams = {...toRaw(ruleForm),updateDate:getCurTime()}
-  if(updatePreUserInfo.value ==JSON.stringify(toRaw(ruleForm))){
+  console.log(JSON.parse(updatePreUserInfo.value))
+  console.log(obj)
+  if(updatePreUserInfo.value !=JSON.stringify(obj)){
     return ElMessage.warning("请先编辑信息后再进行提交")
   }
-  const {data:res} = await  getUpdateUserInfo(obj)
-  if(res.code!=200) {
-    ElMessage.error("个人信息修改失败")
-    emits("updateUserInfo")
-    return
-  }
-  emits("updateUserInfo")
-  ElMessage.success("个人信息修改成功")
-  
+  // const {data:res} = await  getUpdateUserInfo(obj)
+  // if(res.code!=200) {
+  //   ElMessage.error("个人信息修改失败")
+  //   emits("updateUserInfo")
+  //   return
+  // }
+  // emits("updateUserInfo")
+  // ElMessage.success("个人信息修改成功")
+  //
 }
 
-
-watch(ruleForm,()=>{
-  const isDisableUpdate = toRaw(toRaw(props).isDisableUpdate)
-  if(updatePreUserInfo.value ==JSON.stringify(toRaw(ruleForm))){
-    disabledSubmit.value = true
-  }else{
-    if(!isDisableUpdate){
-      disabledSubmit.value = false
-    }
-    
-  }
-},{immediate:true})
 
 </script>
 

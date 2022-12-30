@@ -33,6 +33,7 @@
         <el-button type="primary" :disabled="disabledSubmit" @click="submitForm(ruleFormRef)"
         >提交</el-button
         >
+<!--        <el-button @click="resetForm(ruleFormRef)">Reset</el-button>-->
       </el-form-item>
     </el-form>
   </div>
@@ -56,8 +57,7 @@ const ruleForm = reactive<IUpdateUserParams>({
   name: '',
 })
 const disabledSubmit = ref(true)
-//保存用户信息，点击提交后前后对比判断是否进行了编辑
-const updatePreUserInfo = ref("")
+
 type Props = {
   userInfo:IUserInfoData[],
   isDisableUpdate:boolean
@@ -81,7 +81,6 @@ watch(props,()=>{
     ruleForm.introduce = data[0]?.introduce as string
     ruleForm.name = data[0]?.name as string
     ruleForm.address = data[0]?.address as string
-    updatePreUserInfo.value = JSON.stringify(toRaw(ruleForm))
   }
 })
 
@@ -158,6 +157,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
       if(!state||!login) return
       updateUser()
     } else {
+      // console.log('error submit!')
       return false
     }
   })
@@ -167,9 +167,6 @@ const submitForm = (formEl: FormInstance | undefined) => {
 const updateUser = async ()=>{
   if(!rules.userId) return
   const obj:IUpdateUserParams = {...toRaw(ruleForm),updateDate:getCurTime()}
-  if(updatePreUserInfo.value ==JSON.stringify(toRaw(ruleForm))){
-    return ElMessage.warning("请先编辑信息后再进行提交")
-  }
   const {data:res} = await  getUpdateUserInfo(obj)
   if(res.code!=200) {
     ElMessage.error("个人信息修改失败")
@@ -178,21 +175,8 @@ const updateUser = async ()=>{
   }
   emits("updateUserInfo")
   ElMessage.success("个人信息修改成功")
-  
 }
 
-
-watch(ruleForm,()=>{
-  const isDisableUpdate = toRaw(toRaw(props).isDisableUpdate)
-  if(updatePreUserInfo.value ==JSON.stringify(toRaw(ruleForm))){
-    disabledSubmit.value = true
-  }else{
-    if(!isDisableUpdate){
-      disabledSubmit.value = false
-    }
-    
-  }
-},{immediate:true})
 
 </script>
 

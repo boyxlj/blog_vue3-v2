@@ -276,9 +276,11 @@ const deleteCollect = async (id: string | number, e: Event) => {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: red;
     .img_box{
       width: 100px;
       height: 60px;
+      background: skyblue;
       overflow: hidden;
       border-radius: 3px;
     }
@@ -289,7 +291,7 @@ const deleteCollect = async (id: string | number, e: Event) => {
       object-fit: cover;
       border-radius: 3px;
       &:hover{
-        transform: scale(1.2);
+        transform: scale(1.3);
       }
     }
   }

@@ -283,13 +283,13 @@ const deleteCollect = async (id: string | number, e: Event) => {
       border-radius: 3px;
     }
     img {
-      transition: all .3s;
+      transition: all .4s;
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 3px;
       &:hover{
-        transform: scale(1.2);
+        transform: scale(1.4);
       }
     }
   }

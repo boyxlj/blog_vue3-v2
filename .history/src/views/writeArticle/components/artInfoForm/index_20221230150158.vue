@@ -252,6 +252,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
         uploadShow.value = true
       }
     } else {
+      // console.log('error submit!')
       return false
     }
   })
@@ -295,7 +296,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 }
 //点击预览
 const clickPreView = ()=>{
-  if(!ruleForm.artContent?.trim()) return ElMessage.warning("文章内容不能为空哦")
+  if(!ruleForm.artContent.trim()) return ElMessage.warning("文章内容不能为空哦")
   preViewOpen.value=!preViewOpen.value
 }
 

@@ -252,6 +252,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
         uploadShow.value = true
       }
     } else {
+      // console.log('error submit!')
       return false
     }
   })

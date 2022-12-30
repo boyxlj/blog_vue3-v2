@@ -183,15 +183,7 @@ const updateUser = async ()=>{
 
 
 watch(ruleForm,()=>{
-  const isDisableUpdate = toRaw(toRaw(props).isDisableUpdate)
-  if(updatePreUserInfo.value ==JSON.stringify(toRaw(ruleForm))){
-    disabledSubmit.value = true
-  }else{
-    if(!isDisableUpdate){
-      disabledSubmit.value = false
-    }
-    
-  }
+  console.log("发生变化")
 },{immediate:true})
 
 </script>

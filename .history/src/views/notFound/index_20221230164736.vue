@@ -3,8 +3,8 @@
     <div class="bg"></div>
     <p>您访问的页面丢失啦~</p>
     <div class="btns">
-      <el-button class="btn" @click="navigateGoBack">返回上一步</el-button>
       <el-button class="btn" @click="navigateIndex">返回到首页</el-button>
+      <el-button class="btn" @click="navigateGoBack">返回上一步</el-button>
     </div>
   </div>
 </template>
@@ -39,7 +39,7 @@ const navigateGoBack = () => {
     object-fit: cover;
     position: relative;
     transition: all .3s;
-    top: -90px;
+    top: -50px;
     left: 20px;
     &:hover{
       transform: scale(1.1);
@@ -47,12 +47,12 @@ const navigateGoBack = () => {
   }
   p{
     position: absolute;
-    bottom: 190px;
+    bottom: 170px;
     font-size: 26px;
   }
   .btns {
     position: absolute; 
-     bottom: 140px;
+     bottom: 130px;
   }
 }
 </style>

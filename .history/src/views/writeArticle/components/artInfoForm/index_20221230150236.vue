@@ -225,7 +225,7 @@ const rules = reactive({
 
 //打开select
 const visibleChange = ()=>{
-  // console.log("open")
+  console.log("open")
 }
 
 const submitForm = (formEl: FormInstance | undefined) => {
@@ -252,6 +252,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
         uploadShow.value = true
       }
     } else {
+      // console.log('error submit!')
       return false
     }
   })

@@ -34,7 +34,7 @@ onMounted(async ()=>{
     z-index: 999;
     align-items: center;
     justify-content: center;
-    background-image: url("https://api.helloxlj.top/public/static/loginBg.svg");
+    background-image: url("../src/assets/images/loginBg.svg");
   .contain{
       width:880px;
     height: 600px;

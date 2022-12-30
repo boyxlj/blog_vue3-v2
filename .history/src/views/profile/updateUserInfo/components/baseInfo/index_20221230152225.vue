@@ -183,14 +183,9 @@ const updateUser = async ()=>{
 
 
 watch(ruleForm,()=>{
-  const isDisableUpdate = toRaw(toRaw(props).isDisableUpdate)
+  console.log("发生变化")
   if(updatePreUserInfo.value ==JSON.stringify(toRaw(ruleForm))){
-    disabledSubmit.value = true
-  }else{
-    if(!isDisableUpdate){
-      disabledSubmit.value = false
-    }
-    
+    return ElMessage.warning("请先编辑信息后再进行提交")
   }
 },{immediate:true})
 

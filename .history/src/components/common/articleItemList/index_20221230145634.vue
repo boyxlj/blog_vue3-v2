@@ -276,14 +276,14 @@ const deleteCollect = async (id: string | number, e: Event) => {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: red;
     .img_box{
       width: 100px;
       height: 60px;
+      background: skyblue;
       overflow: hidden;
-      border-radius: 3px;
     }
     img {
-      transition: all .3s;
       width: 100%;
       height: 100%;
       object-fit: cover;

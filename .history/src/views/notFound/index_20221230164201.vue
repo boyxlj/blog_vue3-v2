@@ -2,10 +2,8 @@
   <div class="notFound">
     <div class="bg"></div>
     <p>您访问的页面丢失啦~</p>
-    <div class="btns">
-      <el-button class="btn" @click="navigateGoBack">返回上一步</el-button>
-      <el-button class="btn" @click="navigateIndex">返回到首页</el-button>
-    </div>
+    <el-button class="btn" @click="navigateIndex">回到首页</el-button>
+    <el-button class="btn btn1" @click="navigateIndex">返回上一步</el-button>
   </div>
 </template>
 
@@ -13,9 +11,6 @@
 const router = useRouter();
 const navigateIndex = () => {
   router.replace("/home");
-};
-const navigateGoBack = () => {
-  router.go(-1);
 };
 </script>
 
@@ -37,9 +32,10 @@ const navigateGoBack = () => {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     object-fit: cover;
+    /* background: red; */
     position: relative;
     transition: all .3s;
-    top: -90px;
+    top: -50px;
     left: 20px;
     &:hover{
       transform: scale(1.1);
@@ -48,11 +44,11 @@ const navigateGoBack = () => {
   p{
     position: absolute;
     bottom: 190px;
-    font-size: 26px;
+    font-size: 20px;
   }
-  .btns {
+  .btn {
     position: absolute; 
-     bottom: 140px;
+     bottom: 130px;
   }
 }
 </style>
