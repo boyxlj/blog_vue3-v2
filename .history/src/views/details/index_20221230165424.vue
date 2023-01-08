@@ -538,10 +538,10 @@ const navigateComment = () => {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
   z-index: 9999;
   border-radius: 50px;
-  transition: all 0.4s ;
+  transition: all 0.4s;
   background-image: linear-gradient(
     to right,
     rgb(242, 68, 68),

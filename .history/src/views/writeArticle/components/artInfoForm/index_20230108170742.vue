@@ -12,7 +12,7 @@
         <el-input clearable v-model.trim="ruleForm.artTitle"  placeholder="请填写内容标题" type="text" autocomplete="off" />
       </el-form-item>
       <el-form-item label="内容详情" class="item"  prop="artIntroduce">
-        <el-input  type="textarea"  :autosize="{ minRows: 2, maxRows: 4 }" clearable v-model.trim="ruleForm.artIntroduce"  placeholder="请填写内容详情(简单描述文章主体内容)" autocomplete="off" />
+        <el-input clearable v-model.trim="ruleForm.artIntroduce"  placeholder="请填写内容详情(简单描述文章主体内容)" type="text" autocomplete="off" />
       </el-form-item>
       <el-form-item label="文章分类"  prop="tag">
         <el-select
@@ -184,7 +184,7 @@ const validateIntroduce = (rule: any, value: any, callback: any) => {
     callback(new Error('文章描述不能为空'))
   } else
     if (value.length < 8 || value.length > 120) {
-      callback(new Error('描述的字数应该在8-120之间'))
+      callback(new Error('描述的字数应该在8-200之间'))
     }else {
     callback()
   }
